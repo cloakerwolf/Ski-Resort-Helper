@@ -46,3 +46,9 @@ CREATE TABLE "visits"
     "rating" INTEGER,
     "comments" VARCHAR (400) NOT NULL
 );
+
+
+INSERT INTO "hills"
+    ("name", "description", "picture", "pic_gen_area", "address", "number_of_lifts", "terrain_park", "snowmaking", "trails", "website_url")
+VALUES
+    ('Lutsen Mountains', 'Largest and highest ski hill with 4 mountains in mid America. Lutsen offers lodging at the base of the mountain. Some of the resort features include snowboarding, skiing, cross country skiing and snowshoe trails', 'http://www.skicentral.com/assets/images/trailmaps/218003-1200.jpg', 'https://skiliftblog.files.wordpress.com/2018/03/page_274_lutsen-mountains-expanded-ski-area-master-plan.jpg', '467 Ski Hill Rd, Lutsen, MN 55612', '9', '4', 'yes', '92', 'https://www.lutsen.com/');
