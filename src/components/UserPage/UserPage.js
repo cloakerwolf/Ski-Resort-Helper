@@ -52,7 +52,7 @@ class UserPage extends Component {
 
   seeDescription = (id) => {
     console.log('clicked pic', id);
-    // this.props.history.push()
+    this.props.history.push(`/description/${id}`);
     
   }
 

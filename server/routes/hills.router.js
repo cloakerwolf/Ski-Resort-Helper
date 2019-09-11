@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * GET route template
+ * GET route for all hills
  */
 router.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "hills" ORDER BY "id" DESC;';
@@ -14,6 +14,27 @@ router.get('/', (req, res) => {
         .catch(error => {
             console.log('error getting hills', error);
             res.sendStatus(500);
+        });
+});
+
+/**
+ * GET route for specific hill
+ */
+router.get('/:id', (req, res) => {
+    //return movie for specific id with genre
+    let id = req.params.id;
+    let queryText =
+        `SELECT * FROM "hills" WHERE "id" = $1;
+        `;
+    pool.query(queryText, [id])
+        .then((result) => {
+            console.log('Success GET from specific hill router');
+            res.send(result.rows[0]);
+        })
+        .catch((error) => {
+            console.log('Error in GET in specific hill router', error);
+            res.sendStatus(500);
+
         });
 });
 
