@@ -3,6 +3,7 @@ import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
 import user from './userReducer';
 import hillList from './hillsReducer';
+import specificHill from './specificHillReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
   user, // will have an id and username if someone is logged in
   hillList, //will have the list of hills with the all of its values in the table
+  specificHill, //will send the specific hill back with all information for it from hills table
 });
 
 export default rootReducer;
