@@ -32,8 +32,11 @@ class Description extends Component {
         
         return (
             <>
+            <div>
                 <p>{this.props.specificHill.name}</p>
                 <p>Average Rating:  /5</p>
+                    <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/addvisit/${this.props.match.params.id}`)} className="btn btn-secondary btn-lg checkoutBtn">Add Visit</Button>
+            </div>
             <img
                 src={this.props.specificHill.picture}
                 alt={this.props.specificHill.pic_gen_area}
@@ -42,13 +45,15 @@ class Description extends Component {
                 <p>Description: {this.props.specificHill.description}</p>
                 <p># of lifts: {this.props.specificHill.number_of_lifts}</p>
                 <p># of terrain Parks: {this.props.specificHill.terrain_park}</p>
-                <p>snowmaking: {this.props.specificHill.snowmaking}</p>
+                <p>snowmaking: {this.props.specificHill.snowmaking? <p>yes</p>: <p>no</p>}</p>
                 <p>address: {this.props.specificHill.address}</p>
             <img
                     src={this.props.specificHill.pic_gen_area}
                     alt={this.props.specificHill.picture}
                     className= "descriptionImg"
             ></img>
+            <br/>
+                <a href={this.props.specificHill.website_url}>{this.props.specificHill.website_url}</a>
 
             </>
         );

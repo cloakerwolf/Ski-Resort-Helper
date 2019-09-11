@@ -61,6 +61,11 @@ class App extends Component {
               path="/description/:id"
               component={Description}
             />
+            <ProtectedRoute
+              exact
+              path="/addvisit/:id"
+              component={AddVisit}
+            />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
