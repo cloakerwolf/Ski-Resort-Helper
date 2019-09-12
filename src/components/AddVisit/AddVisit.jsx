@@ -33,7 +33,7 @@ class AddVisit extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.comments === '' || this.state.rating === '') { alert('ENTER A INPUT And A Comment!') }
+        if (this.state.comments == '' || this.state.rating == '') { alert('ENTER A INPUT And A Comment!') }
         else {
             console.log(this.state);
             

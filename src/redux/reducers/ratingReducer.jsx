@@ -1,6 +1,6 @@
-const commentReducer = (state = [], action) => {
+const ratingReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_COMMENT':
+        case 'SET_RATING':
             return action.payload;
         default:
             return state;
@@ -12,4 +12,4 @@ const commentReducer = (state = [], action) => {
 
 // user will be on the redux state at:
 // state.hillList
-export default commentReducer;
+export default ratingReducer;

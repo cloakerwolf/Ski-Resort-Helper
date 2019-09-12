@@ -104,21 +104,51 @@ router.post('/comment', (req, res) => {
 
 
 router.get('/comment/:id', (req, res) => {
-    //return movie for specific id with genre
+    //return comments with a username for specific id of a hill
     let id = req.params.id;
     let queryText =
-        `SELECT ROUND(AVG("visits".rating), 0) AS "rating", array_agg("visits".comments) AS "comments"
-         FROM "visits" 
-         WHERE "visits".hill_id = $1
-         GROUP BY "hill_id";
-        `;
+                `
+                SELECT "user".username AS "user",  "visits".comments AS "comments"
+                FROM "visits" 
+                JOIN "user" ON "user".id = "visits".username_id
+                WHERE "visits".hill_id = $1;
+                `;
+        // `
+        // SELECT ROUND(AVG("visits".rating), 0) AS "rating", array_agg("visits".comments) AS "comments"
+        //  FROM "visits" 
+        //  WHERE "visits".hill_id = $1
+        //  GROUP BY "hill_id";
+        // `;
     pool.query(queryText, [id])
         .then((result) => {
             console.log('Success GET from comments router');
-            res.send(result.rows[0]);
+            res.send(result.rows);
         })
         .catch((error) => {
             console.log('Error in GET in comments router', error);
+            res.sendStatus(500);
+
+        });
+});
+
+
+router.get('/rating/:id', (req, res) => {
+    //return average hill rating for a specific hill
+    let id = req.params.id;
+    let queryText =
+                `
+                SELECT ROUND(AVG("visits".rating), 0) AS "rating"
+                FROM "visits"
+                WHERE "visits".hill_id = $1;
+                `
+    
+    pool.query(queryText, [id])
+        .then((result) => {
+            console.log('Success GET from rating router');
+            res.send(result.rows[0]);
+        })
+        .catch((error) => {
+            console.log('Error in GET in rating router', error);
             res.sendStatus(500);
 
         });
