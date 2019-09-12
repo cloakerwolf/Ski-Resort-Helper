@@ -80,4 +80,48 @@ router.delete('/:id', (req, res) => {
         })
 })
 
+
+router.post('/comment', (req, res) => {
+    console.log('req.user:', req.user);
+    console.log('req.body', req.body);
+    
+    let comment = req.body;
+    let userId = req.user.id;
+    let queryText = `INSERT INTO "visits" ("username_id", "hill_id", "rating", "comments")
+                     VALUES ($1, $2, $3, $4);`;
+            pool.query(queryText, [userId, comment.id, comment.rating, comment.comments])
+            .then(results => {
+                console.log('Results POST of Comments router:', results);
+                res.sendStatus(201);
+                
+            })
+            .catch(error =>{
+                console.log('Error Post of Comments router:', error);
+                res.sendStatus(500);
+            })
+})
+
+
+
+router.get('/comment/:id', (req, res) => {
+    //return movie for specific id with genre
+    let id = req.params.id;
+    let queryText =
+        `SELECT ROUND(AVG("visits".rating), 0) AS "rating", array_agg("visits".comments) AS "comments"
+         FROM "visits" 
+         WHERE "visits".hill_id = $1
+         GROUP BY "hill_id";
+        `;
+    pool.query(queryText, [id])
+        .then((result) => {
+            console.log('Success GET from comments router');
+            res.send(result.rows[0]);
+        })
+        .catch((error) => {
+            console.log('Error in GET in comments router', error);
+            res.sendStatus(500);
+
+        });
+});
+
 module.exports = router;

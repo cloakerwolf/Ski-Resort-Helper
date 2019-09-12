@@ -17,6 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import Description from '../Description/Description';
+import AddVisit from '../AddVisit/AddVisit';
 
 import './App.css';
 
