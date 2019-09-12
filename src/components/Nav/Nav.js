@@ -22,12 +22,19 @@ const Nav = (props) => (
           <Link className="nav-link" to="/info">
             Hills Visited
           </Link>
+          <Link className="nav-link" to="/hillrequest">
+            Hill Request
+          </Link>
+          
           <LogOutButton className="nav-link"/>
         </>
       )}
       {/* Always show this link since the about page is not protected */}
       <Link className="nav-link" to="/about">
-        Request A New Hill
+        About
+      </Link>
+      <Link className="nav-link" to="/admin">
+        Admin
       </Link>
     </div>
   </div>
