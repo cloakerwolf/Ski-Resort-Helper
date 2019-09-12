@@ -79,7 +79,7 @@ class Description extends Component {
                 {/* {Avg Rating out of 5} */}
                 <p>Average Rating:  {this.props.rating.rating}/5</p>
                 {/* {create a button that takes you to the add visit page} */}
-                    <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/addvisit/${this.props.match.params.id}`)} className="btn btn-secondary btn-lg checkoutBtn">Add Visit</Button>
+                    <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/addvisit/${this.props.match.params.id}`)} >Add Visit</Button>
             </div>
             {/* {display img on page for the trails} */}
             <img

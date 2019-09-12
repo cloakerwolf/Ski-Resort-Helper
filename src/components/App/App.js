@@ -18,6 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import Description from '../Description/Description';
 import AddVisit from '../AddVisit/AddVisit';
+import Admin from '../Admin/Admin';
 
 import './App.css';
 
@@ -66,6 +67,11 @@ class App extends Component {
               exact
               path="/addvisit/:id"
               component={AddVisit}
+            />
+            <ProtectedRoute
+              exact
+              path="/admin"
+              component={Admin}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
