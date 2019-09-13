@@ -51,6 +51,7 @@ router.post('/', (req, res) => {
          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);`;
     pool.query(queryText, [newhill.name, newhill.description, newhill.picture, newhill.pic_gen_area, newhill.address, newhill.number_of_lifts, newhill.terrain_park, newhill.snowmaking, newhill.trails, newhill.website_url])
         .then(results => {
+            
             res.sendStatus(201);
         })
         .catch(error => {
@@ -66,12 +67,25 @@ router.post('/', (req, res) => {
 //delete
 router.delete('/:id', (req, res) => {
     let id = req.params.id
-    let queryText = `DELETE FROM "hills" WHERE id = $1`
+    
+    let queryText1 = `DELETE FROM "visits"
+                      WHERE "visits".hill_id = $1;`;
+                                        
+    
     console.log('in Delete id:', id);
 
 
-    pool.query(queryText, [id])
+    pool.query(queryText1, [id])
         .then((result) => {
+            let querytext2 = `DELETE FROM "hills" WHERE id = $1;`;
+            pool.query(querytext2, [id])
+                .then((result) => {
+                    console.log('in DELETERouter:', result);
+                    res.sendStatus(200);
+                }).catch((error) => {
+                    console.log('in DELETERouter ERROR:', error);
+                    res.sendStatus(500);
+                })
             console.log('in DELETERouter:', result);
             res.sendStatus(200);
         }).catch((error) => {

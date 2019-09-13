@@ -40,7 +40,11 @@ class Admin extends Component {
     }
 
     deleteHill = (id) => {
-        console.log('clicked pic', id);
+        console.log('clicked delete', id);
+        this.props.dispatch({
+            type: 'DELETE_HILL',
+            payload: id
+        })
         
     }
 
@@ -58,12 +62,15 @@ class Admin extends Component {
                     <TableCell>{hill.number_of_lifts}</TableCell>
                     <TableCell>{hill.terrain_park}</TableCell>
                     <TableCell>{hill.trails}</TableCell>
-                    <TableCell><a href={hill.website_url}>{hill.website_url}</a></TableCell>
+                    {/* <TableCell><a href={hill.website_url}>{hill.website_url}</a></TableCell> */}
                     <TableCell>
-                        <Button variant="contained" color="primary">Edit Hill</Button>
+                        <Button variant="contained" color="primary">{hill.website_url}</Button>
                     </TableCell>
                     <TableCell>
-                        <Button variant="contained" color="secondary">Delete Hill</Button>
+                        <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/edithill/${hill.id}`)}>Edit Hill</Button>
+                    </TableCell>
+                    <TableCell>
+                        <Button variant="contained" color="secondary" onClick={() => this.deleteHill(hill.id)}>Delete Hill<DeleteIcon/></Button>
                     </TableCell>
                 </TableRow>
             )

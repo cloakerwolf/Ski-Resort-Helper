@@ -22,9 +22,7 @@ const Nav = (props) => (
           <Link className="nav-link" to="/info">
             Hills Visited
           </Link>
-          <Link className="nav-link" to="/hillrequest">
-            Hill Request
-          </Link>
+          
           
           <LogOutButton className="nav-link"/>
         </>
@@ -35,6 +33,9 @@ const Nav = (props) => (
       </Link>
       <Link className="nav-link" to="/admin">
         Admin
+      </Link>
+      <Link className="nav-link" to="/addhill">
+        Add Hill
       </Link>
     </div>
   </div>
