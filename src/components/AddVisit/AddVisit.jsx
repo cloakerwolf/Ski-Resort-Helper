@@ -6,9 +6,9 @@ import Button from '@material-ui/core/Button';
 
 class AddVisit extends Component {
 
-    state = {
+    // state = {
 
-    }
+    // }
 
 
     componentDidMount() {
@@ -33,7 +33,7 @@ class AddVisit extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.comments == '' || this.state.rating == '') { alert('ENTER A INPUT And A Comment!') }
+        if (this.state.comments === '' || this.state.rating === '') { alert('ENTER A INPUT And A Comment!') }
         else {
             console.log(this.state);
             
@@ -53,7 +53,7 @@ class AddVisit extends Component {
                 //     comments: this.state.comments
                 // }
             });
-            this.props.history.push(`/description/${this.props.match.params.id}`);
+            this.props.history.push(`/home`);
         }
     }
 
@@ -74,7 +74,7 @@ class AddVisit extends Component {
                     <h2>{this.props.specificHill.name}</h2>
                     
                     <form  >
-                        <input className="inputs" type="radio" name="feeling" value="1" onChange={this.handleRadio} />1
+                    <input className="inputs" type="radio" name="feeling" value="1" onChange={this.handleRadio} />1
                     <input className="inputs" type="radio" name="feeling" value="2" onChange={this.handleRadio} />2
                     <input className="inputs" type="radio" name="feeling" value="3" onChange={this.handleRadio} />3
                     <input className="inputs" type="radio" name="feeling" value="4" onChange={this.handleRadio} />4
@@ -84,6 +84,7 @@ class AddVisit extends Component {
                             rows="20"
                             col="100"
                             name="comments"
+                            width= "50%"
                             placeholder="comments"
                             onChange={(event) => this.setState({ ...this.state, comments: event.target.value })}
                         />

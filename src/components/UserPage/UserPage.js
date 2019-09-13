@@ -79,8 +79,8 @@ class UserPage extends Component {
         {/* <LogOutButton className="log-in" /> */}
         <GridList
             cols={2}
-            cellHeight={1000}
-            spacing={10}
+            cellHeight={500}
+            spacing={50}
             className={classes.gridList}
             >
         
