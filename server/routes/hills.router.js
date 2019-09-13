@@ -39,6 +39,29 @@ router.get('/:id', (req, res) => {
 });
 
 
+//update the everything for a specific hill
+router.put('/', (req, res) => {
+    let edit = req.body;
+    console.log('in PUT request of router.put', edit);
+    const queryText = 
+                      `UPDATE "hills"
+                      SET "name" = $1, "description" = $2, "picture" =$3, "pic_gen_area" = $4, "address" = $5, "number_of_lifts" = $6, "terrain_park" = $7, "snowmaking" = $8, "trails" = $9, "website_url" = $10
+                      WHERE "id" = $11;`;
+    pool.query(queryText, [edit.name, edit.description, edit.picture, edit.pic_gen_area, edit.address, edit.number_of_lifts, edit.terrain_park, edit.snowmaking, edit.trails, edit.website_url, edit.id])
+        .then(result => {
+            console.log('results in edit router', result);
+            
+            res.sendStatus(201);
+        }).catch(error => {
+            console.log('error in PUT request of router.put', error);
+
+            res.sendStatus(500);
+        })
+
+})
+
+
+
 /**
  * POST route template
  */
@@ -64,7 +87,7 @@ router.post('/', (req, res) => {
 
 
 
-//delete
+//delete the comments attached to a specific hill then delete the hill
 router.delete('/:id', (req, res) => {
     let id = req.params.id
     
@@ -116,7 +139,7 @@ router.post('/comment', (req, res) => {
 })
 
 
-
+//grab the usernames that go with each of the comments for  the specified hill
 router.get('/comment/:id', (req, res) => {
     //return comments with a username for specific id of a hill
     let id = req.params.id;
@@ -145,7 +168,7 @@ router.get('/comment/:id', (req, res) => {
         });
 });
 
-
+//grab the average rating for the specified hill id
 router.get('/rating/:id', (req, res) => {
     //return average hill rating for a specific hill
     let id = req.params.id;

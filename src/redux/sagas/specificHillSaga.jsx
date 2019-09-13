@@ -17,8 +17,22 @@ function* fetchSpecificHill(action) {
     }
 }
 
+function* EditHill(action) {
+    try {
+        yield axios.put(`/api/hills`, action.payload);
+        yield put({
+            type: 'FETCH_SPECIFIC_HILL',
+            payload: action.payload.id
+        })
+    } catch (error) {
+        console.log('error in put on EditHill', error);
+        
+    }
+}
+
 function* specificHillSaga() {
     yield takeLatest('FETCH_SPECIFIC_Hill', fetchSpecificHill);
+    yield takeLatest('EDIT_HILL', EditHill);
 }
 
 export default specificHillSaga;
