@@ -23,13 +23,31 @@ function* DeleteHill(action) {
         })
     } catch (error) {
         console.log('error in the DeleteHill Saga', error);
-        
+
+    }
+}
+
+
+function* AddHill(action) {
+    try {
+        console.log('action payload', action.payload);
+        yield axios.post('api/hills', action.payload);
+        yield put({
+            type: 'FETCH_HILL_LIST',
+            payload: action.payload
+        })
+    } catch (error) {
+        console.log('error in the AddHill Saga');
+
     }
 }
 
 function* hillListSaga() {
     yield takeLatest('FETCH_HILL_LIST', fetchHills);
     yield takeLatest('DELETE_HILL', DeleteHill);
+    yield takeLatest('ADD_HILL', AddHill);
 }
 
 export default hillListSaga;
+
+
