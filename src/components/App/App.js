@@ -20,6 +20,7 @@ import Description from '../Description/Description';
 import AddVisit from '../AddVisit/AddVisit';
 import Admin from '../Admin/Admin';
 import Edithill from '../Edithill/Edithill';
+import AddHill from '../AddHill/AddHill';
 
 import './App.css';
 
@@ -78,6 +79,11 @@ class App extends Component {
               exact
               path="/edithill/:id"
               component={Edithill}
+            />
+            <ProtectedRoute
+              exact
+              path="/addhill"
+              component={AddHill}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

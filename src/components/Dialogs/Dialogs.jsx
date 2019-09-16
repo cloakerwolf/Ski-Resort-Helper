@@ -44,7 +44,7 @@ class Dialogs extends Component {
 
   render(){
     return(
-      <div>
+      <>
         {/* <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
           go to:  {this.props.hill.website_url}
         </Button> */}
@@ -65,7 +65,7 @@ class Dialogs extends Component {
               Stay on this page
             </Button>
             <Button  variant="contained" color="secondary" >
-              <a href={this.props.hill.website_url} target="_blank" >{this.props.hill.website_url}</a>
+              <a href={this.props.hill.website_url} target="_blank" rel="noopener noreferrer" >{this.props.hill.website_url}</a>
             </Button>
           </DialogActions>
         </Dialog>
@@ -91,7 +91,7 @@ class Dialogs extends Component {
             <Button variant="contained" color="secondary" onClick={() => this.deleteHill(this.props.hill.id)}>Delete Hill<DeleteIcon /></Button>
           </TableCell>
         </TableRow>
-      </div>
+      </>
       
     )
   }

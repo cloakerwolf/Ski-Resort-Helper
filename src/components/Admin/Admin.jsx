@@ -55,6 +55,7 @@ class Admin extends Component {
         //loop through the list of hills
         let hills = this.props.hillList.map((hill) => {
             return (
+                
                 <Dialogs hill={hill} key={hill.id}/>
                 // <TableRow key={hill.id}>
                 //     {/* <Hill hill={hill} seeDescription={this.seeDescription} key={hill.id} /> */}
