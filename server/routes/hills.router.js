@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
  * GET route for specific hill
  */
 router.get('/:id', (req, res) => {
-    //return movie for specific id with genre
+    //return hill for specific id 
     let id = req.params.id;
     let queryText =
         `SELECT * FROM "hills" WHERE "id" = $1;
@@ -37,6 +37,34 @@ router.get('/:id', (req, res) => {
 
         });
 });
+
+
+
+/**
+ * GET route for hill Visited for a user
+ */
+router.get('/hillsvisited', (req, res) => {
+    //return hills commented on for specific user id
+    let user = req.user.id;
+    let queryText =
+        `SELECT "hills".name, "hills".picture, "hills".pic_gen_area, "hills".id 
+        FROM "hills"
+        JOIN "visits" ON "visits".hill_id = "hills".id
+        JOIN "user" ON "visits".username_id = "user".id
+        WHERE "user".id = $1
+        GROUP BY "hills".id;`;
+    pool.query(queryText, [user])
+        .then((result) => {
+            console.log('Success GET from visited hills router');
+            res.send(result.rows[0]);
+        })
+        .catch((error) => {
+            console.log('Error in GET in visited hills router', error);
+            res.sendStatus(500);
+
+        });
+});
+
 
 
 //update the everything for a specific hill
@@ -63,7 +91,7 @@ router.put('/', (req, res) => {
 
 
 /**
- * POST route template
+ * Add new hill
  */
 router.post('/', (req, res) => {
     let newhill = req.body;
@@ -90,7 +118,7 @@ router.post('/', (req, res) => {
 //delete the comments attached to a specific hill then delete the hill
 router.delete('/:id', (req, res) => {
     let id = req.params.id
-    
+    //delete this first from the database
     let queryText1 = `DELETE FROM "visits"
                       WHERE "visits".hill_id = $1;`;
                                         
@@ -100,6 +128,7 @@ router.delete('/:id', (req, res) => {
 
     pool.query(queryText1, [id])
         .then((result) => {
+            //delete this after 
             let querytext2 = `DELETE FROM "hills" WHERE id = $1;`;
             pool.query(querytext2, [id])
                 .then((result) => {
@@ -117,7 +146,7 @@ router.delete('/:id', (req, res) => {
         })
 })
 
-
+//add new user comments and rating on a hill
 router.post('/comment', (req, res) => {
     console.log('req.user:', req.user);
     console.log('req.body', req.body);
@@ -150,12 +179,7 @@ router.get('/comment/:id', (req, res) => {
                 JOIN "user" ON "user".id = "visits".username_id
                 WHERE "visits".hill_id = $1;
                 `;
-        // `
-        // SELECT ROUND(AVG("visits".rating), 0) AS "rating", array_agg("visits".comments) AS "comments"
-        //  FROM "visits" 
-        //  WHERE "visits".hill_id = $1
-        //  GROUP BY "hill_id";
-        // `;
+        
     pool.query(queryText, [id])
         .then((result) => {
             console.log('Success GET from comments router');

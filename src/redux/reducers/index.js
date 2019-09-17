@@ -6,6 +6,7 @@ import hillList from './hillsReducer';
 import specificHill from './specificHillReducer';
 import comment from './commentReducer';
 import rating from './ratingReducer';
+import hillsVisited from './hillsVisitedReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   specificHill, //will send the specific hill back with all information for it from hills table
   comment, //handles the comments from a user
   rating, //handles the ratings avg
+  hillsVisited, //handles the hills that a user has rated and commented then sends the list
 });
 
 export default rootReducer;
