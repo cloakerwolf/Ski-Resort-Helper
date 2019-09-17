@@ -17,26 +17,6 @@ router.get('/', (req, res) => {
         });
 });
 
-/**
- * GET route for specific hill
- */
-router.get('/:id', (req, res) => {
-    //return hill for specific id 
-    let id = req.params.id;
-    let queryText =
-        `SELECT * FROM "hills" WHERE "id" = $1;
-        `;
-    pool.query(queryText, [id])
-        .then((result) => {
-            console.log('Success GET from specific hill router');
-            res.send(result.rows[0]);
-        })
-        .catch((error) => {
-            console.log('Error in GET in specific hill router', error);
-            res.sendStatus(500);
-
-        });
-});
 
 
 
@@ -45,7 +25,9 @@ router.get('/:id', (req, res) => {
  */
 router.get('/hillsvisited', (req, res) => {
     //return hills commented on for specific user id
-    let user = req.user.id;
+    // req.user.id;
+    console.log('user', req.user.id);
+    
     let queryText =
         `SELECT "hills".name, "hills".picture, "hills".pic_gen_area, "hills".id 
         FROM "hills"
@@ -53,10 +35,10 @@ router.get('/hillsvisited', (req, res) => {
         JOIN "user" ON "visits".username_id = "user".id
         WHERE "user".id = $1
         GROUP BY "hills".id;`;
-    pool.query(queryText, [user])
+    pool.query(queryText, [req.user.id])
         .then((result) => {
             console.log('Success GET from visited hills router');
-            res.send(result.rows[0]);
+            res.send(result.rows);
         })
         .catch((error) => {
             console.log('Error in GET in visited hills router', error);
@@ -214,5 +196,27 @@ router.get('/rating/:id', (req, res) => {
 
         });
 });
+
+/**
+ * GET route for specific hill
+ */
+router.get('/:id', (req, res) => {
+    //return hill for specific id 
+    let id = req.params.id;
+    let queryText =
+        `SELECT * FROM "hills" WHERE "id" = $1;
+        `;
+    pool.query(queryText, [id])
+        .then((result) => {
+            console.log('Success GET from specific hill router');
+            res.send(result.rows[0]);
+        })
+        .catch((error) => {
+            console.log('Error in GET in specific hill router', error);
+            res.sendStatus(500);
+
+        });
+});
+
 
 module.exports = router;

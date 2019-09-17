@@ -4,13 +4,13 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 
 //get all hills from the db that the user has commented and rated
-function* fetchHillsVisited(action) {
+function* fetchHillsVisited() {
     try {
         let response = yield axios.get('/api/hills/hillsvisited')
         console.log(response);
         yield put({ type: 'SET_HILLS_VISITED', payload: response.data })
     } catch (error) {
-        console.log('error in Get on fetchHills', error);
+        console.log('error in Get on fetchHillsVisited', error);
 
     }
 };
