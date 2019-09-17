@@ -5,6 +5,7 @@ import userSaga from './userSaga';
 import hillListSaga from './hillListSaga';
 import specificHillSaga from './specificHillSaga';
 import commentSaga from './commentSaga';
+import hillsVisitedSaga from './hillsVisitedSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     hillListSaga(),
     specificHillSaga(),
     commentSaga(),
+    hillsVisitedSaga(),
   ]);
 }
