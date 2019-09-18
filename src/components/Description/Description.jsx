@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+//material-ui 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-
-
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -43,14 +42,7 @@ class Description extends Component {
         })
     }
 
-    // //calls the avg rating for this hill id
-    // fetchAvgRating = () =>{
-    //     let id = this.props.match.params.id;
-    //     this.props.dispatch({
-    //         type: 'FETCH_RATING',
-    //         payload: id
-    //     })
-    // }
+    
 
 
     render() {
@@ -72,8 +64,8 @@ class Description extends Component {
 
         return (
             <>
-                <Grid container spacing={24} alignItems={'center'} justify={'space-evenly'}>
-                    <Grid item xs={2}>
+                <Grid container spacing={1} alignItems={'center'} justify={'space-evenly'}>
+                    <Grid item xs={2} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
                 <div>
                     {/* {JSON.stringify(this.props.comments)} */}
                     {/* {hill Name} */}
@@ -93,36 +85,38 @@ class Description extends Component {
                 ></img>
                    
                 {/* {description} */}
-                <Grid container spacing={24} alignItems={'center'} justifyContent={'space-evenly'}>
-                    <Grid item xs={8} >
+                <Grid container spacing={1} alignItems={'center'} justify={'space-evenly'}>
+                        <Grid item xs={12} style={{ padding: 20, marginTop: 20, marginBottom: 20, textAlign: "center" }}>
                         <Paper>Description: {this.props.specificHill.description}</Paper>
                     </Grid>
                     {/* {# of lifts} */}
-                    <Grid item xs={6}>
+                    <Grid item xs={6} style={{padding: 20, marginTop: 20, marginBottom: 20}}>
                         <Paper># of lifts: {this.props.specificHill.number_of_lifts}</Paper>
                     </Grid>
                     {/* {# of terrain parks} */}
-                    <Grid item xs={4}>
+                        <Grid item xs={6} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
                         <Paper># of terrain Parks: {this.props.specificHill.terrain_park}</Paper>
                     </Grid>
                     {/* {Do they make their own snow} */}
-                    <Grid item xs={6} >
+                        <Grid item xs={6} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
                             <Paper>snowmaking: {this.props.specificHill.snowmaking ? <>yes</> : <>no</>}</Paper>
                     </Grid>
                     {/* {what is the address of the hill} */}
-                    <Grid item xs={6}>
+                        <Grid item xs={6} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
                         <Paper>address: {this.props.specificHill.address}</Paper>
                     </Grid>
                     {/* {image of the general area} */}
                 </Grid>
+                    <Grid item xs={12} style={{ padding: 20, marginTop: 20, marginBottom: 20, textAlign: "center"}}>
                 <img
                     src={this.props.specificHill.pic_gen_area}
                     alt={this.props.specificHill.picture}
                     className="descriptionImg"
                 ></img>
+                    </Grid>
                 <br />
                 {/* {link this to the site of the hill} */}
-                <Grid item xs={12}>
+                    <Grid item xs={12} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
                 <div className="websiteLink">
                     <a href={this.props.specificHill.website_url} >{this.props.specificHill.website_url}</a>
                 </div>
@@ -136,9 +130,9 @@ class Description extends Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            <Grid item xs={12}>
+                                
                             {comment}
-                                </Grid>
+                               
                         </TableBody>
                     </Table>
                 </Paper>
