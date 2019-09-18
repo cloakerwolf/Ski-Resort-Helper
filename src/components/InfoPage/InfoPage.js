@@ -8,6 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 
 
+
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -57,13 +58,14 @@ class InfoPage extends Component {
     const { classes } = this.props;
     return (
       <div>
+        
         <GridList
           cols={2}
-          cellHeight={500}
+          cellHeight={200}
           spacing={50}
           className={classes.gridList}
         >
-
+          
           {JSON.stringify(this.props.hillsVisited)}
           {hills}
         </GridList>

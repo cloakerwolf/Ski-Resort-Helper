@@ -55,3 +55,10 @@ input {
 .websiteLink {
     text-align: center;
 }
+
+html {
+    background-image: url("https://media.timeout.com/images/102953767/image.jpg");
+    background-repeat: no-repeat;
+    max-width: 100%;
+    height: auto;
+}
