@@ -8,13 +8,13 @@
 
 .nav {
   overflow: hidden;
-  background-color: #344cce;
+  background-color:blue;
 }
 
 .nav-link {
   float: left;
   color: #f2f2f2;
-  background-color: #344cce;
+  background-color: blue;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;

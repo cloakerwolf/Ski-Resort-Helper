@@ -7,7 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import { border } from '@material-ui/system';
+
 
 
 const styles = theme => ({
@@ -62,7 +62,7 @@ class UserPage extends Component {
     //loop through the list of hills
     let hills = this.props.hillList.map((hill) => {
       return (
-        <GridListTile key={hill.id} style={{width: 'auto', border: "dotted"}}>
+        <GridListTile key={hill.id} style={{width: 'auto', border: "inset", borderColor: "Yellow"}}>
           <Hill hill={hill} seeDescription={this.seeDescription} key={hill.id} />
         </GridListTile>
       )
@@ -78,7 +78,7 @@ class UserPage extends Component {
         
        
         {/* <LogOutButton className="log-in" /> */}
-        <ListSubheader component="div" style={{textDecoration: "underline", fontWeight: "bold", fontSize: "2.5em", color: "Purple"}}>Hill List</ListSubheader>
+        <ListSubheader component="div" style={{textDecoration: "underline", fontWeight: "bold", fontSize: "2.5em", color: "White", backgroundColor: "blue", fontFamily: "Snowtop"}}>Hill List</ListSubheader>
         <GridList
             cols={2}
             cellHeight={200}

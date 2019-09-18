@@ -61,7 +61,7 @@ class AddHill extends Component {
 
 
                 <div>
-                    <h1>Add New Hill Information</h1>
+                    <h1 style={{textAlign: "center", color: "white", backgroundColor: "blue"}}>Add New Hill Information</h1>
                     <form>
                         <p>name of hill:</p>
                         <textarea

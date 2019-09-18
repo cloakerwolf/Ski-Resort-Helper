@@ -57,8 +57,13 @@ input {
 }
 
 html {
-    background-image: url("https://media.timeout.com/images/102953767/image.jpg");
+    background-image: url("https://github.com/cloakerwolf/Solo-Project---Ski-Resort-Helper/blob/master/background%20image/IMG_0275.JPG?raw=true");
     background-repeat: no-repeat;
-    max-width: 100%;
+    max-width: auto;
     height: auto;
+}
+
+@font-face {
+    font-family: "Snowtop";
+    src: url(../../Fonts/SnowtopCaps.ttf)
 }
