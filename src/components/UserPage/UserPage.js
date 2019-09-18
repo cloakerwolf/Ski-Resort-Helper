@@ -6,7 +6,8 @@ import Hill from '../Hill/Hill';
 import { withStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-
+import ListSubheader from '@material-ui/core/ListSubheader';
+import { border } from '@material-ui/system';
 
 
 const styles = theme => ({
@@ -15,7 +16,7 @@ const styles = theme => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper
+    // backgroundColor: theme.palette.background.paper
   },
   gridList: {
     width: 'auto',
@@ -61,7 +62,7 @@ class UserPage extends Component {
     //loop through the list of hills
     let hills = this.props.hillList.map((hill) => {
       return (
-        <GridListTile key={hill.id} style={{width: 'auto'}}>
+        <GridListTile key={hill.id} style={{width: 'auto', border: "dotted"}}>
           <Hill hill={hill} seeDescription={this.seeDescription} key={hill.id} />
         </GridListTile>
       )
@@ -69,7 +70,7 @@ class UserPage extends Component {
 
     const {classes} = this.props;
     return (
-      <div className={classes.root}>
+      <div className={classes.root} >
         {/* <h1 id="welcome">
           Welcome, {this.props.user.username}!
           <p>Your ID is: {this.props.user.id}</p>
@@ -77,9 +78,10 @@ class UserPage extends Component {
         
        
         {/* <LogOutButton className="log-in" /> */}
+        <ListSubheader component="div" style={{textDecoration: "underline", fontWeight: "bold", fontSize: "2.5em", color: "Purple"}}>Hill List</ListSubheader>
         <GridList
             cols={2}
-            cellHeight={500}
+            cellHeight={200}
             spacing={50}
             className={classes.gridList}
             >
