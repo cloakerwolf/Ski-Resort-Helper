@@ -62,7 +62,7 @@ class AddHill extends Component {
 
                 <div>
                     <h1 style={{textAlign: "center", color: "white", backgroundColor: "blue"}}>Add New Hill Information</h1>
-                    <form>
+                    <form style={{opacity: "0.75"}}>
                         <p>name of hill:</p>
                         <textarea
                             rows="2"

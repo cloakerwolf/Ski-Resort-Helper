@@ -80,7 +80,7 @@ class Admin extends Component {
         })
 
         return (
-            <Paper>
+            <Paper style={{opacity: "0.65"}}>
                 <Table>
                     <TableHead>
                         <TableRow>
