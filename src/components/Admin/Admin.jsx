@@ -32,7 +32,7 @@ class Admin extends Component {
             type: 'FETCH_HILL_LIST'
         })
     }
-    
+
 
     editHill = (id) => {
         console.log('clicked pic', id);
@@ -46,17 +46,17 @@ class Admin extends Component {
             type: 'DELETE_HILL',
             payload: id
         })
-        
+
     }
 
 
     render() {
-       
+
         //loop through the list of hills
         let hills = this.props.hillList.map((hill) => {
             return (
-                
-                <Dialogs hill={hill} key={hill.id}/>
+
+                <Dialogs hill={hill} key={hill.id} />
                 // <TableRow key={hill.id}>
                 //     {/* <Hill hill={hill} seeDescription={this.seeDescription} key={hill.id} /> */}
                 //     <TableCell>{hill.name}</TableCell>
@@ -80,7 +80,7 @@ class Admin extends Component {
         })
 
         return (
-            <Paper style={{opacity: "0.65"}}>
+            <Paper style={{ opacity: "0.65" }}>
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -101,8 +101,8 @@ class Admin extends Component {
                 </Table>
             </Paper>
 
-          
-        )       
+
+        )
     }
 }
 

@@ -42,7 +42,7 @@ class Description extends Component {
         })
     }
 
-    
+
 
 
     render() {
@@ -66,76 +66,76 @@ class Description extends Component {
             <>
                 <Grid container spacing={1} alignItems={'center'} justify={'space-evenly'}>
                     <Grid item xs={2} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
-                <div>
-                    {/* {JSON.stringify(this.props.comments)} */}
-                    {/* {hill Name} */}
-                    <h1>{this.props.specificHill.name}</h1>
-                    {/* {Avg Rating out of 5} */}
-                    <p>Average Rating:  {this.props.rating.rating}/5</p>
-                    {/* {create a button that takes you to the add visit page} */}
-                    <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/addvisit/${this.props.match.params.id}`)} >Add Visit</Button>
-                </div>
+                        <div>
+                            {/* {JSON.stringify(this.props.comments)} */}
+                            {/* {hill Name} */}
+                            <h1>{this.props.specificHill.name}</h1>
+                            {/* {Avg Rating out of 5} */}
+                            <p>Average Rating:  {this.props.rating.rating}/5</p>
+                            {/* {create a button that takes you to the add visit page} */}
+                            <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/addvisit/${this.props.match.params.id}`)} >Add Visit</Button>
+                        </div>
                     </Grid>
-                {/* {display img on page for the trails} */}
-                
-                <img
-                    src={this.props.specificHill.picture}
-                    alt={this.props.specificHill.pic_gen_area}
-                    className="descriptionImg"
-                ></img>
-                   
-                {/* {description} */}
-                <Grid container spacing={1} alignItems={'center'} justify={'space-evenly'}>
+                    {/* {display img on page for the trails} */}
+
+                    <img
+                        src={this.props.specificHill.picture}
+                        alt={this.props.specificHill.pic_gen_area}
+                        className="descriptionImg"
+                    ></img>
+
+                    {/* {description} */}
+                    <Grid container spacing={1} alignItems={'center'} justify={'space-evenly'}>
                         <Grid item xs={12} style={{ padding: 20, marginTop: 20, marginBottom: 20, textAlign: "center" }}>
-                        <Paper>Description: {this.props.specificHill.description}</Paper>
-                    </Grid>
-                    {/* {# of lifts} */}
-                    <Grid item xs={6} style={{padding: 20, marginTop: 20, marginBottom: 20}}>
-                        <Paper># of lifts: {this.props.specificHill.number_of_lifts}</Paper>
-                    </Grid>
-                    {/* {# of terrain parks} */}
+                            <Paper>Description: {this.props.specificHill.description}</Paper>
+                        </Grid>
+                        {/* {# of lifts} */}
                         <Grid item xs={6} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
-                        <Paper># of terrain Parks: {this.props.specificHill.terrain_park}</Paper>
-                    </Grid>
-                    {/* {Do they make their own snow} */}
+                            <Paper># of lifts: {this.props.specificHill.number_of_lifts}</Paper>
+                        </Grid>
+                        {/* {# of terrain parks} */}
+                        <Grid item xs={6} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
+                            <Paper># of terrain Parks: {this.props.specificHill.terrain_park}</Paper>
+                        </Grid>
+                        {/* {Do they make their own snow} */}
                         <Grid item xs={6} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
                             <Paper>snowmaking: {this.props.specificHill.snowmaking ? <>yes</> : <>no</>}</Paper>
-                    </Grid>
-                    {/* {what is the address of the hill} */}
+                        </Grid>
+                        {/* {what is the address of the hill} */}
                         <Grid item xs={6} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
-                        <Paper>address: {this.props.specificHill.address}</Paper>
+                            <Paper>address: {this.props.specificHill.address}</Paper>
+                        </Grid>
+                        {/* {image of the general area} */}
                     </Grid>
-                    {/* {image of the general area} */}
-                </Grid>
-                    <Grid item xs={12} style={{ padding: 20, marginTop: 20, marginBottom: 20, textAlign: "center"}}>
-                <img
-                    src={this.props.specificHill.pic_gen_area}
-                    alt={this.props.specificHill.picture}
-                    className="descriptionImg"
-                ></img>
+                    <Grid item xs={12} style={{ padding: 20, marginTop: 20, marginBottom: 20, textAlign: "center" }}>
+                        <img
+                            src={this.props.specificHill.pic_gen_area}
+                            alt={this.props.specificHill.picture}
+                            className="descriptionImg"
+                        ></img>
                     </Grid>
-                <br />
-                {/* {link this to the site of the hill} */}
+                    <br />
+                    {/* {link this to the site of the hill} */}
                     <Grid item xs={12} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
-                <div className="websiteLink">
-                    <a href={this.props.specificHill.website_url} >{this.props.specificHill.website_url}</a>
-                </div>
-                </Grid>
-                <Paper>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>Username</TableCell>
-                                <TableCell>Comments</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                                
-                            {comment}
-                               
-                        </TableBody>
-                    </Table>
-                </Paper>
+                        <div className="websiteLink">
+                            <a href={this.props.specificHill.website_url} >{this.props.specificHill.website_url}</a>
+                        </div>
+                    </Grid>
+                    <Paper>
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Username</TableCell>
+                                    <TableCell>Comments</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+
+                                {comment}
+
+                            </TableBody>
+                        </Table>
+                    </Paper>
                 </Grid>
             </>
         );

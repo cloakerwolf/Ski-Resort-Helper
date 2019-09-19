@@ -4,7 +4,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* addCommentSaga(action) {
     try {
         console.log('action payload', action.payload);
-        
+
         yield axios.post(`/api/hills/comment`, action.payload);
         yield put({
             type: 'FETCH_USER_COMMENTS',
@@ -12,22 +12,22 @@ function* addCommentSaga(action) {
         })
     } catch (error) {
         console.log('error in addCommentSaga', error);
-        
+
     }
 }
 
-function* fetchCommentSaga(action){
+function* fetchCommentSaga(action) {
     try {
         let comments = yield axios.get(`/api/hills/comment/${action.payload}`);
         console.log('comments in fetchCommentSaga', comments.data);
-        
+
         yield put({
-                    type: 'SET_COMMENT',
-                    payload: comments.data
-    })
+            type: 'SET_COMMENT',
+            payload: comments.data
+        })
     } catch (error) {
-        console.log('error in fetchCommentSaga:',error);
-        
+        console.log('error in fetchCommentSaga:', error);
+
     }
 }
 

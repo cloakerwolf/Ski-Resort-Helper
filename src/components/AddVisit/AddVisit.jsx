@@ -25,7 +25,8 @@ class AddVisit extends Component {
     }
 
     handleRadio = (event) => {
-        this.setState({ ...this.state,
+        this.setState({
+            ...this.state,
             rating: event.target.value
         })
     }
@@ -36,14 +37,14 @@ class AddVisit extends Component {
         if (this.state.comments === '' || this.state.rating === '') { alert('ENTER A INPUT And A Comment!') }
         else {
             console.log(this.state);
-            
+
             let userComment = {
                 id: this.props.specificHill.id,
                 rating: this.state.rating,
                 comments: this.state.comments
             }
             console.log('userComment', userComment);
-            
+
             this.props.dispatch({
                 type: 'ADD_USER_COMMENT_RATING',
                 payload: userComment
@@ -72,9 +73,9 @@ class AddVisit extends Component {
                 <div>
                     <h1>Add Visit</h1>
                     <h2>{this.props.specificHill.name}</h2>
-                    
+
                     <form  >
-                    <input className="inputs" type="radio" name="feeling" value="1" onChange={this.handleRadio} />1
+                        <input className="inputs" type="radio" name="feeling" value="1" onChange={this.handleRadio} />1
                     <input className="inputs" type="radio" name="feeling" value="2" onChange={this.handleRadio} />2
                     <input className="inputs" type="radio" name="feeling" value="3" onChange={this.handleRadio} />3
                     <input className="inputs" type="radio" name="feeling" value="4" onChange={this.handleRadio} />4
@@ -84,7 +85,7 @@ class AddVisit extends Component {
                             rows="20"
                             col="100"
                             name="comments"
-                            width= "50%"
+                            width="50%"
                             placeholder="comments"
                             onChange={(event) => this.setState({ ...this.state, comments: event.target.value })}
                         />

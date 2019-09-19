@@ -18,7 +18,7 @@ class LoginPage extends Component {
           password: this.state.password,
         },
       });
-      
+
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
@@ -78,7 +78,7 @@ class LoginPage extends Component {
           <button
             type="button"
             className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
+            onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
           >
             Register
           </button>

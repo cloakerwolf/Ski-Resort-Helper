@@ -25,7 +25,7 @@ class AddHill extends Component {
     }
 
 
-   
+
 
     AddHill = (event) => {
         event.preventDefault();
@@ -61,8 +61,8 @@ class AddHill extends Component {
 
 
                 <div>
-                    <h1 style={{textAlign: "center", color: "white", backgroundColor: "blue"}}>Add New Hill Information</h1>
-                    <form style={{opacity: "0.75"}}>
+                    <h1 style={{ textAlign: "center", color: "white", backgroundColor: "blue" }}>Add New Hill Information</h1>
+                    <form style={{ opacity: "0.75" }}>
                         <p>name of hill:</p>
                         <textarea
                             rows="2"

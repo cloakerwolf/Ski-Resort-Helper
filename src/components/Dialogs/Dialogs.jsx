@@ -40,10 +40,10 @@ class Dialogs extends Component {
     this.setState({ open: false });
   };
 
-  
 
-  render(){
-    return(
+
+  render() {
+    return (
       <>
         {/* <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
           go to:  {this.props.hill.website_url}
@@ -64,7 +64,7 @@ class Dialogs extends Component {
             <Button onClick={this.handleClose} variant="contained" color="primary">
               Stay on this page
             </Button>
-            <Button  variant="contained" color="secondary" >
+            <Button variant="contained" color="secondary" >
               <a href={this.props.hill.website_url} target="_blank" rel="noopener noreferrer" >{this.props.hill.website_url}</a>
             </Button>
           </DialogActions>
@@ -92,7 +92,7 @@ class Dialogs extends Component {
           </TableCell>
         </TableRow>
       </>
-      
+
     )
   }
 };

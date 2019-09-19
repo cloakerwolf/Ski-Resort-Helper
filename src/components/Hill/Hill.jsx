@@ -11,15 +11,15 @@ class Hill extends Component {
         return (
             <div onClick={() => this.props.seeDescription(this.props.hill.id)}>
                 <img src={this.props.hill.picture}
-                     alt={this.props.hill.pic_gen_area}
-                     
-                     className="hillList"
+                    alt={this.props.hill.pic_gen_area}
+
+                    className="hillList"
                 ></img>
                 <GridListTileBar
-                title={this.props.hill.name}
-                subtitle={<span>click on image for hill description</span>}></GridListTileBar>
+                    title={this.props.hill.name}
+                    subtitle={<span>click on image for hill description</span>}></GridListTileBar>
                 {/* <h1>{this.props.hill.name}</h1> */}
-                
+
             </div>
         )
     }

@@ -26,7 +26,7 @@ function* EditHill(action) {
         })
     } catch (error) {
         console.log('error in put on EditHill', error);
-        
+
     }
 }
 

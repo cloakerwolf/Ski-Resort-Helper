@@ -27,7 +27,7 @@ router.get('/hillsvisited', (req, res) => {
     //return hills commented on for specific user id
     // req.user.id;
     console.log('user', req.user.id);
-    
+
     let queryText =
         `SELECT "hills".name, "hills".picture, "hills".pic_gen_area, "hills".id 
         FROM "hills"
@@ -53,14 +53,14 @@ router.get('/hillsvisited', (req, res) => {
 router.put('/', (req, res) => {
     let edit = req.body;
     console.log('in PUT request of router.put', edit);
-    const queryText = 
-                      `UPDATE "hills"
+    const queryText =
+        `UPDATE "hills"
                       SET "name" = $1, "description" = $2, "picture" =$3, "pic_gen_area" = $4, "address" = $5, "number_of_lifts" = $6, "terrain_park" = $7, "snowmaking" = $8, "trails" = $9, "website_url" = $10
                       WHERE "id" = $11;`;
     pool.query(queryText, [edit.name, edit.description, edit.picture, edit.pic_gen_area, edit.address, edit.number_of_lifts, edit.terrain_park, edit.snowmaking, edit.trails, edit.website_url, edit.id])
         .then(result => {
             console.log('results in edit router', result);
-            
+
             res.sendStatus(201);
         }).catch(error => {
             console.log('error in PUT request of router.put', error);
@@ -84,7 +84,7 @@ router.post('/', (req, res) => {
          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);`;
     pool.query(queryText, [newhill.name, newhill.description, newhill.picture, newhill.pic_gen_area, newhill.address, newhill.number_of_lifts, newhill.terrain_park, newhill.snowmaking, newhill.trails, newhill.website_url])
         .then(results => {
-            
+
             res.sendStatus(201);
         })
         .catch(error => {
@@ -103,8 +103,8 @@ router.delete('/:id', (req, res) => {
     //delete this first from the database
     let queryText1 = `DELETE FROM "visits"
                       WHERE "visits".hill_id = $1;`;
-                                        
-    
+
+
     console.log('in Delete id:', id);
 
 
@@ -132,21 +132,21 @@ router.delete('/:id', (req, res) => {
 router.post('/comment', (req, res) => {
     console.log('req.user:', req.user);
     console.log('req.body', req.body);
-    
+
     let comment = req.body;
     let userId = req.user.id;
     let queryText = `INSERT INTO "visits" ("username_id", "hill_id", "rating", "comments")
                      VALUES ($1, $2, $3, $4);`;
-            pool.query(queryText, [userId, comment.id, comment.rating, comment.comments])
-            .then(results => {
-                console.log('Results POST of Comments router:', results);
-                res.sendStatus(201);
-                
-            })
-            .catch(error =>{
-                console.log('Error Post of Comments router:', error);
-                res.sendStatus(500);
-            })
+    pool.query(queryText, [userId, comment.id, comment.rating, comment.comments])
+        .then(results => {
+            console.log('Results POST of Comments router:', results);
+            res.sendStatus(201);
+
+        })
+        .catch(error => {
+            console.log('Error Post of Comments router:', error);
+            res.sendStatus(500);
+        })
 })
 
 
@@ -155,13 +155,13 @@ router.get('/comment/:id', (req, res) => {
     //return comments with a username for specific id of a hill
     let id = req.params.id;
     let queryText =
-                `
+        `
                 SELECT "user".username AS "user",  "visits".comments AS "comments"
                 FROM "visits" 
                 JOIN "user" ON "user".id = "visits".username_id
                 WHERE "visits".hill_id = $1;
                 `;
-        
+
     pool.query(queryText, [id])
         .then((result) => {
             console.log('Success GET from comments router');
@@ -179,12 +179,12 @@ router.get('/rating/:id', (req, res) => {
     //return average hill rating for a specific hill
     let id = req.params.id;
     let queryText =
-                `
+        `
                 SELECT ROUND(AVG("visits".rating), 0) AS "rating"
                 FROM "visits"
                 WHERE "visits".hill_id = $1;
                 `
-    
+
     pool.query(queryText, [id])
         .then((result) => {
             console.log('Success GET from rating router');
