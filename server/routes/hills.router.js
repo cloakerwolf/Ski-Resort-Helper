@@ -1,11 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * GET route for all hills
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     let queryText = 'SELECT * FROM "hills" ORDER BY "id" DESC;';
     pool.query(queryText).then(result => {
         // Sends back the results in an object
@@ -23,7 +24,7 @@ router.get('/', (req, res) => {
 /**
  * GET route for hill Visited for a user
  */
-router.get('/hillsvisited', (req, res) => {
+router.get('/hillsvisited', rejectUnauthenticated, (req, res) => {
     //return hills commented on for specific user id
     // req.user.id;
     console.log('user', req.user.id);
@@ -50,7 +51,7 @@ router.get('/hillsvisited', (req, res) => {
 
 
 //update the everything for a specific hill
-router.put('/', (req, res) => {
+router.put('/', rejectUnauthenticated, (req, res) => {
     let edit = req.body;
     console.log('in PUT request of router.put', edit);
     const queryText =
@@ -75,7 +76,7 @@ router.put('/', (req, res) => {
 /**
  * Add new hill
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     let newhill = req.body;
     console.log('adding hill', newhill);
 
@@ -98,7 +99,7 @@ router.post('/', (req, res) => {
 
 
 //delete the comments attached to a specific hill then delete the hill
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     let id = req.params.id
     //delete this first from the database
     let queryText1 = `DELETE FROM "visits"
@@ -129,7 +130,7 @@ router.delete('/:id', (req, res) => {
 })
 
 //add new user comments and rating on a hill
-router.post('/comment', (req, res) => {
+router.post('/comment', rejectUnauthenticated, (req, res) => {
     console.log('req.user:', req.user);
     console.log('req.body', req.body);
 
@@ -151,7 +152,7 @@ router.post('/comment', (req, res) => {
 
 
 //grab the usernames that go with each of the comments for  the specified hill
-router.get('/comment/:id', (req, res) => {
+router.get('/comment/:id', rejectUnauthenticated, (req, res) => {
     //return comments with a username for specific id of a hill
     let id = req.params.id;
     let queryText =
@@ -175,7 +176,7 @@ router.get('/comment/:id', (req, res) => {
 });
 
 //grab the average rating for the specified hill id
-router.get('/rating/:id', (req, res) => {
+router.get('/rating/:id', rejectUnauthenticated, (req, res) => {
     //return average hill rating for a specific hill
     let id = req.params.id;
     let queryText =
@@ -200,7 +201,7 @@ router.get('/rating/:id', (req, res) => {
 /**
  * GET route for specific hill
  */
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
     //return hill for specific id 
     let id = req.params.id;
     let queryText =
