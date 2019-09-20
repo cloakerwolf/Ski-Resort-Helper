@@ -56,7 +56,7 @@ class Admin extends Component {
         let hills = this.props.hillList.map((hill) => {
             return (
 
-                <Dialogs hill={hill} key={hill.id} />
+                <Dialogs hill={hill} key={hill.id} deleteHill={this.deleteHill} />
                 // <TableRow key={hill.id}>
                 //     {/* <Hill hill={hill} seeDescription={this.seeDescription} key={hill.id} /> */}
                 //     <TableCell>{hill.name}</TableCell>
@@ -79,7 +79,7 @@ class Admin extends Component {
             )
         })
 
-        return (
+        return this.props.user.admin  ? (   
             <Paper style={{ opacity: "0.65" }}>
                 <Table>
                     <TableHead>
@@ -101,8 +101,8 @@ class Admin extends Component {
                 </Table>
             </Paper>
 
-
-        )
+         
+        ) : <p>Must be a Admin</p>
     }
 }
 
@@ -110,6 +110,7 @@ class Admin extends Component {
 const mapStateToProps = (reduxStore) => {
     return {
         hillList: reduxStore.hillList,
+        user: reduxStore.user,
     }
 }
 export default connect(mapStateToProps)(Admin);

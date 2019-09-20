@@ -3,19 +3,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 
 class Edithill extends Component {
-    //shows the old state of coming from the db which is later changed when things are editted
-    // state = {
-    //     name: '',
-    //     description: '',
-    //     picture: '',
-    //     pic_gen_area: '',
-    //     address: '',
-    //     number_of_lifts: '',
-    //     terrain_park: '',
-    //     snowmaking: '',
-    //     trails: '',
-    //     website_url: ''
-    // }
+   
 
 
     componentDidMount() {
@@ -29,19 +17,7 @@ class Edithill extends Component {
             type: 'FETCH_SPECIFIC_Hill',
             payload: id
         });
-        // this.setState({
-        //     ...this.state,
-        //     name: this.props.specificHill.name,
-        //     description: this.props.specificHill.description,
-        //     picture: this.props.specificHill.picture,
-        //     pic_gen_area: this.props.specificHill.pic_gen_area,
-        //     address: this.props.specificHill.address,
-        //     number_of_lifts: this.props.specificHill.number_of_lifts,
-        //     terrain_park: this.props.specificHill.terrain_park,
-        //     snowmaking: this.props.specificHill.snowmaking,
-        //     trails: this.props.specificHill.trails,
-        //     website_url: this.props.specificHill.website_url
-        // })
+        
     }
 
 

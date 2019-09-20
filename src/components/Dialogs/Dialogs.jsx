@@ -88,7 +88,7 @@ class Dialogs extends Component {
             <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/edithill/${this.props.hill.id}`)}>Edit Hill</Button>
           </TableCell>
           <TableCell>
-            <Button variant="contained" color="secondary" onClick={() => this.deleteHill(this.props.hill.id)}>Delete Hill<DeleteIcon /></Button>
+            <Button variant="contained" color="secondary" onClick={() => this.props.deleteHill(this.props.hill.id)}>Delete Hill<DeleteIcon /></Button>
           </TableCell>
         </TableRow>
       </>

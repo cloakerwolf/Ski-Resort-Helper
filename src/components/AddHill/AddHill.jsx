@@ -24,6 +24,21 @@ class AddHill extends Component {
         });
     }
 
+    preLoadHill = () => {
+        this.setState({
+            name: 'Mount Kato ',
+            description: 'Skiing, snowboarding and snow tubing. Offers ski and snowboarding lessons along with rental equipment.',
+            picture: 'http://www.skicentral.com/assets/images/trailmaps/507001-1200.jpg',
+            pic_gen_area: 'https://www.mountkato.com/uploadIMG/moxie/WebMapRouteToMK.jpg',
+            address: '20461 State Hwy 66, Mankato, MN 56001',
+            number_of_lifts: '10',
+            terrain_park: '4',
+            snowmaking: 'true',
+            trails: '19',
+            website_url: 'https://www.mountkato.com'
+        })
+    }
+
 
 
 
@@ -61,7 +76,7 @@ class AddHill extends Component {
 
 
                 <div>
-                    <h1 style={{ textAlign: "center", color: "white", backgroundColor: "blue" }}>Add New Hill Information</h1>
+                    <h1 onClick={this.preLoadHill} style={{ textAlign: "center", color: "white", backgroundColor: "blue" }}>Add New Hill Information</h1>
                     <form style={{ opacity: "0.75" }}>
                         <p>name of hill:</p>
                         <textarea

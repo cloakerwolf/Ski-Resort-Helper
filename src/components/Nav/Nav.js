@@ -22,21 +22,28 @@ const Nav = (props) => (
           <Link className="nav-link" to="/info">
             Hills Visited
           </Link>
-
-
           <LogOutButton className="nav-link" />
+          {props.user.admin &&(
+            <>
+          <Link className="nav-link" to="/admin">
+            Admin
+          </Link>
+          <Link className="nav-link" to="/addhill">
+            Add Hill
+          </Link>
+          </>
+          )}
         </>
       )}
+      
+      {/* {props.user.id && props.user.isAdmin ? 'Home' : 'Login / Register'} */}
+
       {/* Always show this link since the about page is not protected */}
       {/* <Link className="nav-link" to="/about">
         About
       </Link> */}
-      <Link className="nav-link" to="/admin">
-        Admin
-      </Link>
-      <Link className="nav-link" to="/addhill">
-        Add Hill
-      </Link>
+
+
     </div>
   </div>
 );

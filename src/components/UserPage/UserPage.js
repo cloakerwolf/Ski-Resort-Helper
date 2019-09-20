@@ -62,33 +62,37 @@ class UserPage extends Component {
     //loop through the list of hills
     let hills = this.props.hillList.map((hill) => {
       return (
-        <GridListTile key={hill.id} style={{ width: 'auto', border: "inset", borderColor: "Yellow" }}>
+        <GridListTile key={hill.id} style={{ width: 'auto', border: "double", borderColor: "Yellow"}}>
           <Hill hill={hill} seeDescription={this.seeDescription} key={hill.id} />
         </GridListTile>
       )
     })
-
+    console.log('reducer',  this.props.user);
+    
     const { classes } = this.props;
     return (
       <div className={classes.root} >
         {/* <h1 id="welcome">
           Welcome, {this.props.user.username}!
           <p>Your ID is: {this.props.user.id}</p>
+          <p>Admin: {this.props.user.admin ? <>yes</> : <>no</>}</p>
         </h1> */}
 
 
         {/* <LogOutButton className="log-in" /> */}
         <ListSubheader component="div" style={{ textDecoration: "underline", fontWeight: "bold", fontSize: "2.5em", color: "White", backgroundColor: "blue", fontFamily: "Snowtop" }}>Hill List</ListSubheader>
+        <div style={{padding: "3%"}}>
         <GridList
           cols={2}
           cellHeight={200}
-          spacing={50}
+          spacing={20}
           className={classes.gridList}
         >
 
           {/* {JSON.stringify(this.props.hillList)} */}
           {hills}
         </GridList>
+        </div>
       </div>
     )
   }
