@@ -16,6 +16,7 @@ import Paper from '@material-ui/core/Paper';
 
 
 
+
 class Description extends Component {
 
     //renders once
@@ -64,6 +65,7 @@ class Description extends Component {
 
         return (
             <>
+
                 <Grid container spacing={1} alignItems={'center'} justify={'space-evenly'}>
                     <Grid item xs={2} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
                         <div>
@@ -118,7 +120,7 @@ class Description extends Component {
                     {/* {link this to the site of the hill} */}
                     <Grid item xs={12} style={{ padding: 20, marginTop: 20, marginBottom: 20 }}>
                         <div className="websiteLink">
-                            <a href={this.props.specificHill.website_url} >{this.props.specificHill.website_url}</a>
+                            <Button variant="contained" color="inherit"><a href={this.props.specificHill.website_url} target="_blank" rel="noopener noreferrer" >{this.props.specificHill.website_url} </a></Button>
                         </div>
                     </Grid>
                     <Paper>

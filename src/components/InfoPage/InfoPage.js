@@ -4,6 +4,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Hill from '../Hill/Hill';
 import { withStyles } from '@material-ui/core/styles';
+import ListSubheader from '@material-ui/core/ListSubheader';
 
 
 
@@ -57,8 +58,9 @@ class InfoPage extends Component {
 
     const { classes } = this.props;
     return (
+      
       <div>
-
+        <ListSubheader component="div" style={{ textDecoration: "underline", fontWeight: "bold", fontSize: "2.5em", color: "White", backgroundColor: "blue", fontFamily: "Snowtop", textAlign: "center" }}>Hills Visited</ListSubheader>
         <GridList
           cols={2}
           cellHeight={200}
