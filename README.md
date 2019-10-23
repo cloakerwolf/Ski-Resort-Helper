@@ -5,7 +5,10 @@ Project Duration: 2 Week Sprint
 I have been having a hard time over the years picking which ski resorts to visit and wanted any easier way to decide which one to go to. Some times when i would get to a ski resort i would find out that there is a bunch of ski schools visiting that day so i would not be able to snowboard as much as i would like. I created Ski Resort Helper so members could share their experiences with each other and give the heads up for when a place is usually packed or any other information that pertains to the ski resort. This app is made for ski and snowboarding enthusiast. Ski Resort Helper allows people to look at a list of ski resorts around Minnesota and see details about each one. When you go into the details of a ski resort you are able to leave a rating and comments from your experience at the hill. This will allow other people to see the things that a person said and decide if that is a place they would like to visit. After a ski resort has been rated and commented on it will go into the list of hills that person has visited so they can quickly look up their past experiences and see what others have said about those ski resort since the last time they were there. 
 
 
-
+![MIT LICENSE](https://img.shields.io/github/license/cloakerwolf/the_marketplace.svg?style=flat-square)
+![REPO SIZE](https://img.shields.io/github/repo-size/cloakerwolf/the_marketplace.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/cloakerwolf/the_marketplace.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/cloakerwolf/the_marketplace.svg?style=social)
 
 
 
