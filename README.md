@@ -9,9 +9,54 @@ I have been having a hard time over the years picking which ski resorts to visit
 ![hillRating](documentation/images/hillRating.png)
 ![hillDescription](documentation/images/hillDescription.png)
 
+## Prerequisites
+
+Before you get started, make sure you have the following software installed on your computer:
+
+- [Node.js](https://nodejs.org/en/)
+- [PostrgeSQL](https://www.postgresql.org/)
+- [Nodemon](https://nodemon.io/)
 
 
+## Create database and table
 
+Create a new database called `prime_app` and create the following tables:
+
+```SQL
+CREATE TABLE "user"
+(
+    "id" SERIAL PRIMARY KEY,
+    "username" VARCHAR (80) UNIQUE NOT NULL,
+    "password" VARCHAR (1000) NOT NULL,
+    "full_name" VARCHAR (80) NOT NULL,
+    "email" VARCHAR (80) NOT NULL,
+    "admin" BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE "hills"
+(
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR (100) UNIQUE NOT NULL,
+    "description" VARCHAR (1000) NOT NULL,
+    "picture" VARCHAR (200) NOT NULL,
+    "pic_gen_area" VARCHAR (200) NOT NULL,
+    "address" VARCHAR (100) NOT NULL,
+    "number_of_lifts" INTEGER,
+    "terrain_park" INTEGER,
+    "snowmaking" BOOLEAN DEFAULT FALSE,
+    "trails" INTEGER,
+    "website_url" VARCHAR (250) NOT NULL
+);
+
+CREATE TABLE "visits"
+(
+    "id" SERIAL PRIMARY KEY,
+    "username_id" INT REFERENCES "user",
+    "hill_id" INT REFERENCES "hills",
+    "rating" INTEGER,
+    "comments" VARCHAR (400) NOT NULL
+);
+```
 
 
 
@@ -26,33 +71,8 @@ I have been having a hard time over the years picking which ski resorts to visit
 
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
 
-## Download (Don't Clone) This Repository
 
-* Don't Fork or Clone. Instead, click the `Clone or Download` button and select `Download Zip`.
-* Unzip the project and start with the code in that folder.
-* Create a new GitHub project and push this code to the new repository.
-
-## Prerequisites
-
-Before you get started, make sure you have the following software installed on your computer:
-
-- [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
-- [Nodemon](https://nodemon.io/)
-
-## Create database and table
-
-Create a new database called `prime_app` and create a `user` table:
-
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
 
 If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
 
