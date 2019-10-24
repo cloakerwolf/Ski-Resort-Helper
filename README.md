@@ -117,4 +117,4 @@ CREATE TABLE "visits"
 
 * A huge thanks to [Prime Digital Academy](https://primeacademy.io/) in Minneapolis, and my instructors Dane Smith and Kris Szafranski for providing me with great instruction and the tools to develop this application.
 
-* Special thanks to my aunt who got me started in winter activities when i was a child.
+* Special thanks to my aunt who got me started in winter activities when I was a child.
