@@ -58,24 +58,6 @@ CREATE TABLE "visits"
 );
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
-
-
-
-
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
-
 ## Development Setup Instructions
 
 * Run `npm install`
@@ -84,10 +66,66 @@ If you would like to name your database something else, you will need to change 
     SERVER_SESSION_SECRET=superDuperSecret
     ```
     While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
+
 * Start postgres if not running already by using `brew services start postgresql`
+
 * Run `npm run server`
+
 * Run `npm run client`
+
 * Navigate to `localhost:3000`
+
+## How to use Ski Resort Helper
+
+* Login/Register for an account in order to sign into Ski Resort Helper
+
+* Click on a ski resort that you want to veiw or have visited and it takes you into the description of that resort
+
+* The hills description page gives you a description of the hill that you clicked on. This page also allows you to add a visit in which you can share your rating and comments of your visit. 
+
+* If you want to go to the actual site of each of the hills you can click on the link toward the bottom of the hill description page and you will be sent to that site in a new tab
+
+* After you have rated and commented on a hill you will be able to see that hill in your hills visited page
+
+## Future Features 
+
+* Deploy to Heroku
+
+* Format for mobile devices
+
+* Introduce Google Maps API so members can be routed to the ski resorts
+
+* Make it so members can send new hill information to the Admin so more hills can be added to the list of hills
+
+* Add a search bar to the hills list to make it easier to find the hill members are looking for
+
+## Built With
+
+* [React](http://reactjs.org) 
+
+* Redux
+
+* Express
+
+* Passport
+
+* [PostrgeSQL](https://www.postgresql.org/)
+
+* Material-UI
+
+
+
+
+
+
+
+
+
+
+
+If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
+
+
 
 
 ## Testing Routes with Postman
